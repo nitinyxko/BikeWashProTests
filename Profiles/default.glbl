@@ -4,4 +4,29 @@
    <name>default</name>
    <tag></tag>
    <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>APK path</description>
+      <initValue>'C:\\Users\\USER\\Downloads\\bikewashpro.apk'</initValue>
+      <name>appPath</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Test phone</description>
+      <initValue>'+919767854311'</initValue>
+      <name>testPhoneNumber</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>OTP</description>
+      <initValue>'123456'</initValue>
+      <name>testOTP</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Device UDID</description>
+      <initValue>'00116646S016789'</initValue>
+      <name>deviceUDID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Current booking ID</description>
+      <initValue>''</initValue>
+      <name>currentBookingID</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
