@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalVariableEntities>
-   <description></description>
+   <description>Default profile for Android Nougat Emulator</description>
    <name>default</name>
-   <tag></tag>
+   <tag>android-nougat</tag>
    <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description>APK path</description>
       <initValue>'C:\\Users\\USER\\Downloads\\bikewashpro.apk'</initValue>
       <name>appPath</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>App Package Name</description>
+      <initValue>'com.bikewashpro'</initValue>
+      <name>appPackage</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Test phone</description>

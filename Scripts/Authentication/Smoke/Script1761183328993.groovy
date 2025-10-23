@@ -23,8 +23,8 @@ import org.openqa.selenium.Keys as Keys
 Mobile.startApplication('C:\\Users\\USER\\Downloads\\bikewashpro.apk', true)
 
 // Wait for login screen to load
-Mobile.waitForElementPresent(findTestObject('Object Repository/Customer/Customer_Login'), 20)
-Mobile.verifyElementVisible(findTestObject('Object Repository/Customer/Customer_Login'), 10)
+Mobile.waitForElementPresent(findTestObject('null'), 20)
+Mobile.verifyElementVisible(findTestObject('null'), 10)
 
 // Define the first login button object
 TestObject loginBtn = new TestObject("dynamicLoginBtn")
@@ -36,7 +36,7 @@ loginBtn.addProperty("xpath", ConditionType.EQUALS,
 Mobile.tap(loginBtn, 10)
 
 // ---- Test valid login ----
-Mobile.setText(findTestObject('Object Repository/Customer/Phone Number'), '9767854311', 10)
+Mobile.setText(findTestObject('null'), '9767854311', 10)
 
 // Hide the keyboard (important!)
 Mobile.hideKeyboard()
@@ -51,7 +51,7 @@ loginBtn.addProperty("xpath", ConditionType.EQUALS,
 Mobile.tap(loginBtn, 10)
 
 // Verify successful login
-Mobile.verifyElementExist(findTestObject('Object Repository/Customer/android.widget.TextView - John Doe'), 10)
+Mobile.verifyElementExist(findTestObject('null'), 10)
 
 // Close the app
 Mobile.closeApplication()

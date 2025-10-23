@@ -12,101 +12,88 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.util.KeywordUtil
+import internal.GlobalVariable
 
 /**
- * TC01: Customer Registration
- * Description: Verify that a new customer can successfully register in the BikeWash Pro app
- * Priority: Critical
- * Tags: Authentication, Smoke, Customer
+ * TC01: Customer Registration Flow
+ * Matches actual React Native app flow
  */
 
 try {
-	// Step 1: Launch BikeWash Pro application
-	KeywordUtil.logInfo('Starting BikeWash Pro application')
+	KeywordUtil.logInfo('=== TC01: Customer Registration Started ===')
+	
+	// Step 1: Launch app
 	Mobile.startApplication(GlobalVariable.appPath, false)
 	Mobile.delay(3)
 	
-	// Step 2: Wait for Welcome screen to load
-	KeywordUtil.logInfo('Waiting for Welcome screen')
-	Mobile.waitForElementPresent(findTestObject('Object Repository/WelcomeScreen/btnGetStarted'), 30)
-	
-	// Step 3: Verify Welcome screen elements
-	Mobile.verifyElementVisible(findTestObject('Object Repository/WelcomeScreen/lblAppTitle'), 10)
-	Mobile.verifyElementText(findTestObject('Object Repository/WelcomeScreen/lblAppTitle'), 'BikeWash Pro', FailureHandling.STOP_ON_FAILURE)
-	
-	// Step 4: Tap Get Started button
-	KeywordUtil.logInfo('Tapping Get Started button')
-	Mobile.tap(findTestObject('Object Repository/WelcomeScreen/btnGetStarted'), 10)
+	// Step 2: Tap "I'm a Customer" on Welcome screen
+	Mobile.waitForElementPresent(findTestObject('Welcome/btn_Customer'), 20)
+	Mobile.tap(findTestObject('Welcome/btn_Customer'), 10)
 	Mobile.delay(2)
 	
-	// Step 5: Wait for Registration screen
-	Mobile.waitForElementPresent(findTestObject('Object Repository/RegisterScreen/btnCustomerRole'), 15)
+	// Step 3: Navigate to Register from Login screen
+	Mobile.waitForElementPresent(findTestObject('Login/link_Register'), 15)
+	Mobile.tap(findTestObject('Login/link_Register'), 10)
+	Mobile.delay(2)
 	
-	// Step 6: Select Customer role
-	KeywordUtil.logInfo('Selecting Customer role')
-	Mobile.tap(findTestObject('Object Repository/RegisterScreen/btnCustomerRole'), 10)
-	Mobile.delay(1)
+	// Step 4: Fill registration form
+	KeywordUtil.logInfo('Filling registration form')
 	
-	// Step 7: Verify Customer role is selected
-	Mobile.verifyElementChecked(findTestObject('Object Repository/RegisterScreen/btnCustomerRole'), 5)
+	// Full Name
+	Mobile.tap(findTestObject('Register/input_FullName'), 5)
+	Mobile.setText(findTestObject('Register/input_FullName'), 'John Doe Test', 10)
 	
-	// Step 8: Enter phone number
-	KeywordUtil.logInfo('Entering phone number: ' + GlobalVariable.testPhoneNumber)
-	Mobile.tap(findTestObject('Object Repository/RegisterScreen/txtPhoneNumber'), 5)
-	Mobile.setText(findTestObject('Object Repository/RegisterScreen/txtPhoneNumber'), GlobalVariable.testPhoneNumber, 10)
+	// Phone Number (React Native Phone Input component)
+	Mobile.tap(findTestObject('Register/input_PhoneNumber'), 5)
+	Mobile.setText(findTestObject('Register/input_PhoneNumber'), '9876543210', 10)
 	
-	// Step 9: Enter full name
-	KeywordUtil.logInfo('Entering customer name')
-	Mobile.tap(findTestObject('Object Repository/RegisterScreen/txtFullName'), 5)
-	Mobile.setText(findTestObject('Object Repository/RegisterScreen/txtFullName'), 'Test Customer', 10)
+	// Email
+	Mobile.tap(findTestObject('Register/input_Email'), 5)
+	Mobile.setText(findTestObject('Register/input_Email'), 'john.test@bikewash.com', 10)
 	
-	// Step 10: Enter email address
-	KeywordUtil.logInfo('Entering email address')
-	Mobile.tap(findTestObject('Object Repository/RegisterScreen/txtEmail'), 5)
-	Mobile.setText(findTestObject('Object Repository/RegisterScreen/txtEmail'), 'testcustomer@bikewash.com', 10)
+	// Address
+	Mobile.tap(findTestObject('Register/input_Address'), 5)
+	Mobile.setText(findTestObject('Register/input_Address'), '123 MG Road', 10)
 	
-	// Step 11: Hide keyboard if visible
+	// City
+	Mobile.tap(findTestObject('Register/input_City'), 5)
+	Mobile.setText(findTestObject('Register/input_City'), 'Bangalore', 10)
+	
+	// Pincode
+	Mobile.tap(findTestObject('Register/input_Pincode'), 5)
+	Mobile.setText(findTestObject('Register/input_Pincode'), '560001', 10)
+	
+	// Bike Number (Optional for customer)
+	Mobile.scrollToText('Bike Number', FailureHandling.OPTIONAL)
+	Mobile.tap(findTestObject('Register/input_BikeNumber'), 5)
+	Mobile.setText(findTestObject('Register/input_BikeNumber'), 'KA01AB1234', 10)
+	
+	// Hide keyboard
 	Mobile.hideKeyboard()
 	Mobile.delay(1)
 	
-	// Step 12: Tap Register button
-	KeywordUtil.logInfo('Tapping Register button')
-	Mobile.tap(findTestObject('Object Repository/RegisterScreen/btnRegister'), 10)
+	// Step 5: Accept Terms & Conditions
+	Mobile.scrollToText('Terms & Conditions', FailureHandling.OPTIONAL)
+	Mobile.tap(findTestObject('Register/checkbox_Terms'), 5)
+	
+	// Step 6: Tap Register button
+	Mobile.scrollToText('Create Account', FailureHandling.OPTIONAL)
+	Mobile.tap(findTestObject('Register/btn_Register'), 10)
 	Mobile.delay(3)
 	
-	// Step 13: Wait for OTP screen
-	KeywordUtil.logInfo('Waiting for OTP screen')
-	Mobile.waitForElementPresent(findTestObject('Object Repository/OTPScreen/txtOTP'), 15)
+	// Step 7: Verify success (OTP screen or success message)
+	Mobile.verifyElementVisible(findTestObject('Register/txt_RegistrationSuccess'), 10)
 	
-	// Step 14: Verify OTP screen loaded
-	Mobile.verifyElementVisible(findTestObject('Object Repository/OTPScreen/lblOTPTitle'), 10)
-	
-	// Step 15: Enter OTP code
-	KeywordUtil.logInfo('Entering OTP: ' + GlobalVariable.testOTP)
-	Mobile.tap(findTestObject('Object Repository/OTPScreen/txtOTP'), 5)
-	Mobile.setText(findTestObject('Object Repository/OTPScreen/txtOTP'), GlobalVariable.testOTP, 10)
-	
-	// Step 16: Tap Verify button
-	KeywordUtil.logInfo('Tapping Verify button')
-	Mobile.tap(findTestObject('Object Repository/OTPScreen/btnVerify'), 10)
-	Mobile.delay(3)
-	
-	// Step 17: Verify navigation to Customer Home screen
-	KeywordUtil.logInfo('Verifying Customer Home screen')
-	Mobile.waitForElementPresent(findTestObject('Object Repository/CustomerHomeScreen/lblWelcome'), 20)
-	Mobile.verifyElementVisible(findTestObject('Object Repository/CustomerHomeScreen/lblWelcome'), 10)
-	
-	// Step 18: Verify welcome message contains customer name
-	String welcomeText = Mobile.getText(findTestObject('Object Repository/CustomerHomeScreen/lblWelcome'), 5)
-	assert welcomeText.contains('Test Customer') : 'Welcome message does not contain customer name'
-	
-	KeywordUtil.markPassed('Customer registration completed successfully')
+	KeywordUtil.markPassed('✅ Customer registration completed successfully')
+	Mobile.takeScreenshot('Screenshots/TC01_Success.png')
 	
 } catch (Exception e) {
-	KeywordUtil.markFailed('Customer registration failed: ' + e.getMessage())
-	Mobile.takeScreenshot()
+	KeywordUtil.markFailed("❌ Customer registration failed: ${e.getMessage()}")
+	Mobile.takeScreenshot('Screenshots/TC01_Failed.png')
 	throw e
 } finally {
-	// Step 19: Close application
 	Mobile.closeApplication()
 }
