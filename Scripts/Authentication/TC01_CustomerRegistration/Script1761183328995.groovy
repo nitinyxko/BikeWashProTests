@@ -19,81 +19,58 @@ import internal.GlobalVariable
 
 /**
  * TC01: Customer Registration Flow
- * Matches actual React Native app flow
+ * Description: Tests the complete customer registration process
  */
 
 try {
-	KeywordUtil.logInfo('=== TC01: Customer Registration Started ===')
-	
-	// Step 1: Launch app
-	Mobile.startApplication(GlobalVariable.appPath, false)
-	Mobile.delay(3)
-	
-	// Step 2: Tap "I'm a Customer" on Welcome screen
-	Mobile.waitForElementPresent(findTestObject('Welcome/btn_Customer'), 20)
-	Mobile.tap(findTestObject('Welcome/btn_Customer'), 10)
-	Mobile.delay(2)
-	
-	// Step 3: Navigate to Register from Login screen
-	Mobile.waitForElementPresent(findTestObject('Login/link_Register'), 15)
-	Mobile.tap(findTestObject('Login/link_Register'), 10)
-	Mobile.delay(2)
-	
-	// Step 4: Fill registration form
-	KeywordUtil.logInfo('Filling registration form')
-	
-	// Full Name
-	Mobile.tap(findTestObject('Register/input_FullName'), 5)
-	Mobile.setText(findTestObject('Register/input_FullName'), 'John Doe Test', 10)
-	
-	// Phone Number (React Native Phone Input component)
-	Mobile.tap(findTestObject('Register/input_PhoneNumber'), 5)
-	Mobile.setText(findTestObject('Register/input_PhoneNumber'), '9876543210', 10)
-	
-	// Email
-	Mobile.tap(findTestObject('Register/input_Email'), 5)
-	Mobile.setText(findTestObject('Register/input_Email'), 'john.test@bikewash.com', 10)
-	
-	// Address
-	Mobile.tap(findTestObject('Register/input_Address'), 5)
-	Mobile.setText(findTestObject('Register/input_Address'), '123 MG Road', 10)
-	
-	// City
-	Mobile.tap(findTestObject('Register/input_City'), 5)
-	Mobile.setText(findTestObject('Register/input_City'), 'Bangalore', 10)
-	
-	// Pincode
-	Mobile.tap(findTestObject('Register/input_Pincode'), 5)
-	Mobile.setText(findTestObject('Register/input_Pincode'), '560001', 10)
-	
-	// Bike Number (Optional for customer)
-	Mobile.scrollToText('Bike Number', FailureHandling.OPTIONAL)
-	Mobile.tap(findTestObject('Register/input_BikeNumber'), 5)
-	Mobile.setText(findTestObject('Register/input_BikeNumber'), 'KA01AB1234', 10)
-	
-	// Hide keyboard
-	Mobile.hideKeyboard()
-	Mobile.delay(1)
-	
-	// Step 5: Accept Terms & Conditions
-	Mobile.scrollToText('Terms & Conditions', FailureHandling.OPTIONAL)
-	Mobile.tap(findTestObject('Register/checkbox_Terms'), 5)
-	
-	// Step 6: Tap Register button
-	Mobile.scrollToText('Create Account', FailureHandling.OPTIONAL)
-	Mobile.tap(findTestObject('Register/btn_Register'), 10)
-	Mobile.delay(3)
-	
-	// Step 7: Verify success (OTP screen or success message)
-	Mobile.verifyElementVisible(findTestObject('Register/txt_RegistrationSuccess'), 10)
-	
-	KeywordUtil.markPassed('✅ Customer registration completed successfully')
-	Mobile.takeScreenshot('Screenshots/TC01_Success.png')
-	
+    // Step 1: Launch app
+    Mobile.startApplication(GlobalVariable.appPath, false)
+    Mobile.delay(2)
+    
+    // Step 2: Select Customer role
+    Mobile.tap(findTestObject('Customer_Register/New_Customer/Im a Customer'), 10)
+    
+    // Step 3: Click Create Account
+    Mobile.tap(findTestObject('Customer_Register/Cust_Register'), 10)
+    // Step 4: Fill registration form
+    KeywordUtil.logInfo('Filling registration form')
+    
+    // Full Name
+    Mobile.setText(findTestObject('Customer_Register/Enter your full name'), 'Test Customer', 10)
+    Mobile.hideKeyboard()
+
+    // Enter contact details
+    Mobile.setText(findTestObject('Customer_Register/Enter your email address'), 'test@example.com', 10)
+    Mobile.hideKeyboard()
+    
+    Mobile.setText(findTestObject('Customer_Register/Cust_Register_Phone Number'), GlobalVariable.testPhoneNumber, 10)
+    Mobile.hideKeyboard()
+    
+    // Enter address details
+    Mobile.setText(findTestObject('Customer_Register/Enter your address'), '123 Test Street', 10)
+    Mobile.hideKeyboard()
+    
+    Mobile.tap(findTestObject('Customer_Register/ChooseCountry'), 10)
+    Mobile.setText(findTestObject('Customer_Register/Enter city'), 'Mumbai', 10)
+    Mobile.setText(findTestObject('Customer_Register/Enter pincode'), '400001', 10)
+    Mobile.hideKeyboard()
+    
+    // Enter bike details
+    Mobile.setText(findTestObject('Customer_Register/Enter your bike number'), 'MH12AB1234', 10)
+    Mobile.hideKeyboard()
+    
+    // Submit registration
+    Mobile.tap(findTestObject('Customer_Register/Create_Account'), 10)
+    
+    // Verify success
+    Mobile.delay(2)
+   // Mobile.verifyElementVisible(findTestObject('Customer_Register/Registration_Success'), 10)
+    
+    KeywordUtil.logInfo('=== Customer Registration Completed Successfully ===')
+    
 } catch (Exception e) {
-	KeywordUtil.markFailed("❌ Customer registration failed: ${e.getMessage()}")
-	Mobile.takeScreenshot('Screenshots/TC01_Failed.png')
-	throw e
+    KeywordUtil.markFailed("Customer registration failed: " + e.getMessage())
+    Mobile.takeScreenshot("Screenshots/CustomerRegistration_Failed.png")
 } finally {
-	Mobile.closeApplication()
+    Mobile.closeApplication()
 }

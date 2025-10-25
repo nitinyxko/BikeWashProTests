@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
-   <description></description>
+   <description>Customer Registration button</description>
    <name>Cust_Register</name>
-   <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <tag>registration,customer</tag>
+   <elementGuidId>c8e7d2c5-6f7b-4e9f-b864-e3c89c987656</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
-   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <locator>//android.widget.Button[@text='Register' and ./parent::*[contains(@resource-id,'customer-register')]]</locator>
+   <locatorStrategy>XPATH</locatorStrategy>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>text</name>
       <type>Main</type>
-      <value>android.widget.TextView</value>
+      <value>Register</value>
       <webElementGuid>4c3a999e-d40a-4e4e-b360-650765300621</webElementGuid>
    </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>index</name>
       <type>Main</type>
       <value>0</value>

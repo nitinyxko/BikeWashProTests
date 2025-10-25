@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
-   <description></description>
+   <description>Phone number input field for washer registration</description>
    <name>Register_Washer_Phone Number</name>
-   <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <tag>registration,washer,phone</tag>
+   <elementGuidId>f8e7d2c5-6f7b-4e9f-b864-e3c89c987659</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
-   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <locator>//android.widget.EditText[@hint='Enter your phone number' and ./parent::*[contains(@resource-id,'washer-registration')]]</locator>
+   <locatorStrategy>XPATH</locatorStrategy>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
@@ -16,8 +17,13 @@
       <webElementGuid>2cc0b886-a120-474e-a75b-6cf71038cdd2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
+      <name>hint</name>
+      <type>Main</type>
+      <value>Enter your phone number</value>
+      <webElementGuid>34567890-3456-7890-3456-789012345678</webElementGuid>
+   </webElementProperties>
       <name>index</name>
       <type>Main</type>
       <value>3</value>

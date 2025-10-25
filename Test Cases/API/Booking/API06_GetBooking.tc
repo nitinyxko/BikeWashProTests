@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>API06_GetBooking</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>fd4c24e2-1d8e-4f9b-b7f3-23bef3eca883</testCaseGuid>
+</TestCaseEntity>

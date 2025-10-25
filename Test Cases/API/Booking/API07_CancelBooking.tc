@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>API07_CancelBooking</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f3b6cbb6-70dd-458b-8a3e-3f7004a1ae71</testCaseGuid>
+</TestCaseEntity>

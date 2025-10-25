@@ -4,15 +4,14 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
 
 /**
- * Test Case: Customer Login Flow
- * Description: Verifies that a customer can successfully log in to the app
+ * Test Case: Customer and Washer Login Flow
+ * Description: Verifies that both customer and washer can successfully log in to the app
  */
 
-// Initialize test case
+// Test Case 1: Customer Login
 Mobile.comment('Starting Customer Login Test')
 CustomKeywords.'Keywords.LoginHelper.loginAsCustomer'(GlobalVariable.testPhoneNumber)
 

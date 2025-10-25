@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>api_staging.glbl</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description>API Base URL</description>
+      <initValue>'https://api-staging.bikewashpro.com/v1'</initValue>
+      <name>apiBaseUrl</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Use Mock API</description>
+      <initValue>true</initValue>
+      <name>useMockAPI</name>
+      <protected>false</protected>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>API Session Token</description>
+      <initValue>''</initValue>
+      <name>apiSessionToken</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>API Refresh Token</description>
+      <initValue>''</initValue>
+      <name>apiRefreshToken</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Test Customer Phone</description>
+      <initValue>'+919876543210'</initValue>
+      <name>testPhoneCustomer</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Test Washer Phone</description>
+      <initValue>'+919876543211'</initValue>
+      <name>testPhoneWasher</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Test OTP</description>
+      <initValue>'123456'</initValue>
+      <name>testOTP</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Last Booking ID</description>
+      <initValue>''</initValue>
+      <name>lastBookingID</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Basic Wash Price</description>
+      <initValue>150</initValue>
+      <name>priceBasicWash</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Premium Wash Price</description>
+      <initValue>250</initValue>
+      <name>pricePremiumWash</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Platform Fee %</description>
+      <initValue>10</initValue>
+      <name>platformFeePercent</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>API Timeout</description>
+      <initValue>30000</initValue>
+      <name>apiTimeout</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

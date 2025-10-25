@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MobileElementEntity>
-   <description></description>
+   <description>Washer login button</description>
    <name>Washer_Login</name>
-   <tag></tag>
-   <elementGuidId>00000000-0000-0000-0000-000000000000</elementGuidId>
+   <tag>login,washer</tag>
+   <elementGuidId>b8e7d2c5-6f7b-4e9f-b864-e3c89c987655</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
-   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <locator>//android.widget.Button[@text='Login' and ./parent::*[contains(@resource-id,'washer-login')]]</locator>
+   <locatorStrategy>XPATH</locatorStrategy>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>text</name>
       <type>Main</type>
-      <value>android.view.ViewGroup</value>
-      <webElementGuid>d651b5e3-ff91-424f-9b37-16d27615d1cc</webElementGuid>
+      <value>Login</value>
+      <webElementGuid>98765432-10fe-4321-abcd-ef0123456789</webElementGuid>
    </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>index</name>
       <type>Main</type>
       <value>8</value>
